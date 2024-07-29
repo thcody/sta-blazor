@@ -1,6 +1,6 @@
 {
     "navigationFallback": {
-        "rewrite": "/home"
+        "rewrite": "/"
     },
     "routes": [
       {
