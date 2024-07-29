@@ -12,7 +12,7 @@
         "redirect": "/.auth/logout"
       },
       {
-        "route": "/*",
+        "route": "/profile",
         "allowedRoles": ["authenticated"]
       }
     ],
