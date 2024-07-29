@@ -1,4 +1,5 @@
 @page "/profile"
+@inject UserAuthenticationStateProvider AuthStateProvider
 
 @attribute [Authorize]
 
@@ -6,3 +7,17 @@
 
 <h1>This is my profile</h1>>
 
+<p>Auth State: @_authState</p>
+<p>Token: @_token</p>
+
+
+@code {
+    private string _token;
+    private string _authState;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _token = await AuthStateProvider.GetTokenAsync();
+        _authState = await AuthStateProvider.GetAuthenticationStateAsync();
+    }
+}
