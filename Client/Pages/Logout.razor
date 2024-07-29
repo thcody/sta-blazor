@@ -1,0 +1,18 @@
+@page "/logout"
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+<h3>Logging out...</h3>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await LogoutMe();
+        NavigationManager.NavigateTo("/");
+    }
+
+    private async Task LogoutMe()
+    {
+        await Http.PostAsync("/.auth/logout", null);
+    }
+}
