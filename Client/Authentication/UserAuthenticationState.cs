@@ -1,6 +1,6 @@
 using System.Security.Claims;
 
-namespace Client.Authentication.Models
+namespace Client.Authentication
 {
     public class UserAuthenticationState
     {

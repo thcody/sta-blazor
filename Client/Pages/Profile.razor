@@ -1,5 +1,6 @@
 @page "/profile"
-@inject UserAuthenticationStateProvider AuthStateProvider
+
+@using Client.Authentication;
 
 @attribute [Authorize]
 
@@ -15,9 +16,10 @@
     private string _token;
     private string _authState;
 
+    [Inject] private ApiService _apiService { get; set; }
+    
     protected override async Task OnInitializedAsync()
     {
-        _token = await AuthStateProvider.GetTokenAsync();
-        _authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        _token = await _apiService.GetJwtTokenAsync();
     }
-}
+} 
